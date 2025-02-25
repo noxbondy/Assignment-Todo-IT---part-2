@@ -1,49 +1,27 @@
 package org.opp1;
 import java.util.Objects;
+import java.util.Set;
 
 public class Person {
-    private String name;
+    private int id;
+    private String firstName;
+    private String lastName;
     private String email;
 
-
-    public Person(String name, String email) {
-        this.name = name;
+    public Person(int id, String firstName, String lastName, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return Objects.equals(name, person.name) && Objects.equals(email, person.email);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, email);
-    }
+    public int getId() { return id; }
+    public String getFirstName() { return firstName; }
+    public String getLastName() { return lastName; }
+    public String getEmail() { return email; }
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return firstName + " " + lastName + " (" + email + ")";
     }
 }

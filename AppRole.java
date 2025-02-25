@@ -1,7 +1,5 @@
-package org.opp1;
+package org.opp1.AppRole;
 
 public enum AppRole {
-    ADMIN,
-    USER,
-
+    ADMIN, USER;
 }

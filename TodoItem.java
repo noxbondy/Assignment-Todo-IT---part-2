@@ -1,49 +1,25 @@
-package org.opp1;
-import java.util.Objects;
+package org.opp1.AppRole;
+
+import java.time.LocalDate;
 
 public class TodoItem {
-    private String taskName;
-    private boolean completed;
+    private int id;
+    private String title;
+    private LocalDate deadline;
+    private boolean done;
 
-    public TodoItem(String taskName, boolean completed) {
-        this.taskName = taskName;
-        this.completed = completed;
+    public TodoItem(int id, String title, LocalDate deadline) {
+        this.id = id;
+        this.title = title;
+        this.deadline = deadline;
+        this.done = false;
     }
 
-    public String getTaskName() {
-        return taskName;
-    }
-
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
-    }
-
-    public boolean isCompleted() {
-        return completed;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TodoItem todoItem = (TodoItem) o;
-        return taskName.equals(todoItem.taskName);
-    }
-
-    @Override
-    public int hashCode() {
-        return taskName.hashCode();
-    }
+    public void markDone() { this.done = true; }
+    public boolean isDone() { return done; }
 
     @Override
     public String toString() {
-        return "TodoItem{" +
-                "taskName='" + taskName + '\'' +
-                ", completed=" + completed +
-                '}';
+        return "Todo: " + title + " (Deadline: " + deadline + ") [" + (done ? "Done" : "Pending") + "]";
     }
 }
